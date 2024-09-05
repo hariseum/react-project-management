@@ -1,6 +1,7 @@
 import Tasks from "./Tasks";
 
 export default function SelectedProject({
+  selectedProjectId,
   project,
   onDelete,
   onAddTask,
@@ -12,6 +13,10 @@ export default function SelectedProject({
     month: "short",
     day: "numeric",
   });
+
+  const selectedTasks = tasks.filter(
+    (task) => task.projectId === selectedProjectId
+  );
 
   return (
     <div className="w-[35rem] mt-16">
@@ -32,7 +37,7 @@ export default function SelectedProject({
           {project.description}
         </p>
       </header>
-      <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={tasks} />
+      <Tasks onAdd={onAddTask} onDelete={onDeleteTask} tasks={selectedTasks} />
     </div>
   );
 }
