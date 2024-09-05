@@ -113,15 +113,23 @@ function App() {
   }
 
   return (
-    <main className="h-screen my-8 flex gap-8">
-      <ProjectsSidebar
-        onStartAddProject={handleStartAddProject}
-        projects={projectsState.projects}
-        onSelectProject={handleSelectProject}
-        selectedProjectId={projectsState.selectedProjectId}
-      />
-      {content}
-    </main>
+    <>
+      <header className="w-full bg-stone-900">
+        <p className="font-bold text-5xl text-center py-5 text-stone-200 font-serif">
+          The Project Manager Co.
+        </p>
+      </header>
+      <main className="h-screen my-4 flex gap-8">
+        <ProjectsSidebar
+          onStartAddProject={handleStartAddProject}
+          projects={projectsState.projects}
+          onSelectProject={handleSelectProject}
+          selectedProjectId={projectsState.selectedProjectId}
+        />
+        {content}
+      </main>
+      <footer className="w-full bg-stone-900 text-right uppercase text-l py-4 pr-5 text-stone-400">&#169; 2024 The Project Manager Company, All Rights Reserved</footer>
+    </>
   );
 }
 
